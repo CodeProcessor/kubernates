@@ -1,0 +1,34 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: cubeengine
+spec:
+  clusterIP: 10.109.87.252
+  selector:
+    app: cubeengine
+  ports:
+  - port: 5004
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cubeengine
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: cubeengine
+  template:
+    metadata:
+      labels:
+        app: cubeengine
+    spec:
+      containers:
+      - name: cubeengine
+        image: cubecai/kube:caiengine
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 5004
