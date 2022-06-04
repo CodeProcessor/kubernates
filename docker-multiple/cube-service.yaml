@@ -26,7 +26,7 @@ spec:
     spec:
       containers:
       - name: cube-service
-        image: cubecai/kube:caiservice
+        image: cubecai/kube:caiservicev1.1
         resources:
           limits:
             memory: "128Mi"

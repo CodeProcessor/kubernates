@@ -3,7 +3,6 @@ kind: Service
 metadata:
   name: cubeengine
 spec:
-  clusterIP: 10.109.87.252
   selector:
     app: cubeengine
   ports:
@@ -25,7 +24,7 @@ spec:
     spec:
       containers:
       - name: cubeengine
-        image: cubecai/kube:caiengine
+        image: cubecai/kube:caienginev1.1
         resources:
           limits:
             memory: "128Mi"
